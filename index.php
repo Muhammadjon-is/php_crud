@@ -61,6 +61,12 @@ if (isset($_GET['insert_msg'])) {
 }
 ?>
 
+<?php
+if (isset($_GET['update_msg'])) {
+    echo "<h6>" . $_GET['insert_msg'] . "</h6>";
+}
+?>
+
 
 
 <!-- Button trigger modal -->
