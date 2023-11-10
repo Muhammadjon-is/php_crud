@@ -1,14 +1,29 @@
+
+
 <?php
-define("HOSTNAME", "localhost");
-define("USERNAME", "root");
-define("PASSWORD", "Pankie0417");
-define("DATABASE", "crud_app_php");
+require 'vendor/autoload.php';
 
-$connection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
 
+
+// Load environment variables from the .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+// Access variables
+$host = $_ENV['HOSTNAME'];
+$user = $_ENV['USERNAME'];
+$password = $_ENV['PASSWORD'];
+$database = $_ENV['DATABASE'];
+
+// Use these variables in your database connection code
+$connection = mysqli_connect($host, $user, $password, $database);
 
 if (!$connection) {
     die("Connection Failed");
 } else {
-    "yes it is working";
+    echo "Yes, it is working";
 }
+
+
+
+?>

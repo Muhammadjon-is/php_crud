@@ -6,25 +6,24 @@
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-// Assuming you have a database connection established in $connection
-$query = "SELECT * FROM `Students` WHERE id = $id";
+    // Assuming you have a database connection established in $connection
+    $query = "SELECT * FROM `Students` WHERE id = $id";
 
-$result = mysqli_query($connection, $query);
+    $result = mysqli_query($connection, $query);
 
-if (!$result) {
-    die("Query Failed: " . mysqli_error($connection));
-} else {
-    $row = mysqli_fetch_assoc($result);
-}
-
+    if (!$result) {
+        die("Query Failed: " . mysqli_error($connection));
+    } else {
+        $row = mysqli_fetch_assoc($result);
+    }
 }
 ?>
 
-
 <?php
+//! Update operation
 if (isset($_POST['update_students'])) {
 
-    if(isset($_GET['id_new'])){
+    if (isset($_GET['id_new'])) {
         $idnew =  $_GET['id_new'];
     }
 
